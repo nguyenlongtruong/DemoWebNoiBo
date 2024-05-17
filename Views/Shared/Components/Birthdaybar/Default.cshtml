@@ -1,0 +1,11 @@
+﻿@model WebsiteNoiBoCongTy.Models.Account
+
+@if (Model != null)
+{
+    <h2>
+        chúc mừng sinh nhật @{
+            @Html.DisplayFor(model => model.Fullname)
+        }
+    </h2>
+}
+
