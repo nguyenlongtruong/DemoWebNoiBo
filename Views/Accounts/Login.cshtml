@@ -4,6 +4,8 @@
     Layout = null;
 }
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,6 +20,36 @@
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/app.min.js"></script>
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card-body {
+            padding: 2rem;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .text-center {
+            margin-bottom: 1rem;
+        }
+        .form-control {
+            border-radius: 10px;
+        }
+        .logo-img img {
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
     <!--  Body Wrapper -->
@@ -30,22 +62,21 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
-
-                                    <img src="../assets/images/logos/dark-logo.svg" width="180" alt="">
+                                    <img src="../assets/images/logos/dark-logo.svg" width="180" alt="Logo">
                                 </a>
-                                <p class="text-center">Đăng nhập</p>
+                                <h3 class="text-center">Đăng nhập</h3>
                                 <form asp-action="Login" method="post">
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Username</label>
-                                        <input asp-for="Username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <input asp-for="Username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your username">
                                     </div>
                                     <div class="mb-4">
                                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input asp-for="Password" type="text" type="password" class="form-control" id="exampleInputPassword1">
+                                        <input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
                                     </div>
-                                    <input class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" type="submit" value="Sign In" />
+                                    <input class="btn btn-primary w-100 py-2 fs-4 mb-4 rounded-2" type="submit" value="Sign In" />
                                     <div class="d-flex align-items-center justify-content-center">
-                                        <p>Vui lòng liên hệ quản trị viên để được cấp tài khoản truy cập. <br />Email: admin123@gmail.com</p>
+                                        <p class="text-center">Nếu bạn chưa có tài khoản vui lòng liên hệ quản trị viên để được cấp tài khoản truy cập.<br />Email: admin123@gmail.com</p>
                                     </div>
                                 </form>
                             </div>
@@ -56,3 +87,4 @@
         </div>
     </div>
 </body>
+</html>
