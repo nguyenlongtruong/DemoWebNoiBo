@@ -36,7 +36,7 @@ namespace WebsiteNoiBoCongTy.Controllers.Admin
 
             var notification = await _context.Notification
                 .Include(n => n.Account)
-                .FirstOrDefaultAsync(m => m.NotificationId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (notification == null)
             {
                 return NotFound();
@@ -103,7 +103,7 @@ namespace WebsiteNoiBoCongTy.Controllers.Admin
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NotificationExists(notification.NotificationId))
+                    if (!NotificationExists(notification.Id))
                     {
                         return NotFound();
                     }
@@ -128,7 +128,7 @@ namespace WebsiteNoiBoCongTy.Controllers.Admin
 
             var notification = await _context.Notification
                 .Include(n => n.Account)
-                .FirstOrDefaultAsync(m => m.NotificationId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (notification == null)
             {
                 return NotFound();
@@ -151,14 +151,14 @@ namespace WebsiteNoiBoCongTy.Controllers.Admin
             {
                 _context.Notification.Remove(notification);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool NotificationExists(int id)
         {
-          return (_context.Notification?.Any(e => e.NotificationId == id)).GetValueOrDefault();
+            return (_context.Notification?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

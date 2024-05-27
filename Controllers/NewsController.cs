@@ -36,7 +36,7 @@ namespace WebsiteNoiBoCongTy.Controllers
 
             var news = await _context.News
                 .Include(n => n.Author)
-                .FirstOrDefaultAsync(m => m.NewsId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (news == null)
             {
                 return NotFound();

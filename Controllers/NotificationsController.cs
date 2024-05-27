@@ -37,7 +37,7 @@ namespace WebsiteNoiBoCongTy.Controllers
 
             var notification = await _context.Notification
                 .Include(n => n.Account)
-                .FirstOrDefaultAsync(m => m.NotificationId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (notification == null)
             {
                 return NotFound();

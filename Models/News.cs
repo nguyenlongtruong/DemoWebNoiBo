@@ -6,7 +6,7 @@ namespace WebsiteNoiBoCongTy.Models
     public class News
     {
         [Key]
-        public int NewsId { get; set; }
+        public int Id { get; set; }
         [Required]
         public string? NewsTitle { get; set; }
         [Required]

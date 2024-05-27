@@ -36,7 +36,7 @@ namespace WebsiteNoiBoCongTy.Controllers.Admin
 
             var news = await _context.News
                 .Include(n => n.Author)
-                .FirstOrDefaultAsync(m => m.NewsId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (news == null)
             {
                 return NotFound();
@@ -62,7 +62,7 @@ namespace WebsiteNoiBoCongTy.Controllers.Admin
             if (ModelState.IsValid)
             {
                 var accountList = _context.Account.ToList();
-                foreach(Account acc in accountList)
+                foreach (Account acc in accountList)
                 {
                     Notification notification = new Notification
                     {
@@ -117,7 +117,7 @@ namespace WebsiteNoiBoCongTy.Controllers.Admin
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NewsExists(news.NewsId))
+                    if (!NewsExists(news.Id))
                     {
                         return NotFound();
                     }
@@ -142,7 +142,7 @@ namespace WebsiteNoiBoCongTy.Controllers.Admin
 
             var news = await _context.News
                 .Include(n => n.Author)
-                .FirstOrDefaultAsync(m => m.NewsId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (news == null)
             {
                 return NotFound();
@@ -165,14 +165,14 @@ namespace WebsiteNoiBoCongTy.Controllers.Admin
             {
                 _context.News.Remove(news);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool NewsExists(int id)
         {
-          return (_context.News?.Any(e => e.NewsId == id)).GetValueOrDefault();
+            return (_context.News?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
